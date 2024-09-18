@@ -109,7 +109,7 @@
             <!-- /Left Text -->
             <div class="d-none d-lg-flex col-lg-6 align-items-center">
                 <div class="flex-row text-center mx-auto">
-                    <img src={{ asset('/assets/logo/logo-white.png') }} alt="Auth Cover Bg color" width="400" >
+                    <img src={{ asset('/assets/logo/login.png') }} alt="Auth Cover Bg color" width="400" >
                     <div class="mx-auto">
 
                     </div>

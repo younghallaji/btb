@@ -6,8 +6,12 @@
         @endif
         <div class="card col-md-7">
             <div class="card-header">
-                <h4>Send Mail</h4>
-                <span class="badge badge-pill badge-info">Account Balance: {{number_format(Auth::user()->balance, 2)}}</span>
+                <div class="d-flex justify-content-between">
+                    <h4>Send Mail</h4>
+                    <span class="badge rounded-pill bg-warning d-flex align-items-center justify-content-center">
+                        Account Balance: {{number_format(Auth::user()->balance, 2)}} BTB
+                    </span>
+                </div>
             </div>
 
             <div class="card-body">

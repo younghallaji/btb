@@ -8,7 +8,7 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <h4>Send Mail</h4>
-                    <span class="badge rounded-pill bg-warning align-items-center justify-content-center">
+                    <span class="badge rounded-pill bg-warning d-flex align-items-center justify-content-center">
                         Account Balance: {{number_format(Auth::user()->balance, 2)}} BTB
                     </span>
                 </div>

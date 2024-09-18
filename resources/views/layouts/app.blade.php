@@ -130,28 +130,8 @@
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div class="text-truncate">Dashboards</div>
         </a>
-    </li>   
-    
-    <li class="menu-item ">
-      <a href="javascript:void(0);" class="menu-link menu-toggle" >
-        <i class="menu-icon tf-icons bx bx-credit-card"></i>
-        <div class="text-truncate">My BTB</div>
-      </a>
-
-      <ul class="menu-sub">
-        <li class="menu-item ">
-          <a href="{{route('deposits.option')}}" class="menu-link" >
-            <div>Buy BTB</div>
-          </a>
-        </li>
-        <li class="menu-item ">
-          <a href="{{route('deposits.history')}}" class="menu-link" >
-            <div>History</div>
-          </a>
-        </li>
-      </ul>
     </li>
-
+    
     <li class="menu-item ">
       <a href="javascript:void(0);" class="menu-link menu-toggle" >
         <i class="menu-icon tf-icons bx bx-mail-send"></i>
@@ -176,6 +156,63 @@
         </li>
       </ul>
     </li>
+    
+    <li class="menu-item ">
+      <a href="javascript:void(0);" class="menu-link menu-toggle" >
+        <i class="menu-icon tf-icons bx bx-credit-card"></i>
+        <div class="text-truncate">Deposit BTB</div>
+      </a>
+
+      <ul class="menu-sub">
+        <li class="menu-item ">
+          <a href="{{route('deposits.option')}}" class="menu-link" >
+            <div>Fund BTB</div>
+          </a>
+        </li>
+        <li class="menu-item ">
+          <a href="{{route('deposits.history')}}" class="menu-link" >
+            <div>History</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="menu-item">
+      <a href="#" class="menu-link " >
+        <i class="menu-icon tf-icons bx bx-send"></i>
+        <div class="text-truncate">Transfer BTB</div>
+        </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="#" class="menu-link " >
+        <i class="menu-icon tf-icons bx bx-trending-up"></i>
+        <div class="text-truncate">World Chat</div>
+        </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="#" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-video"></i>
+        <div class="text-truncate">Tutorial</div>
+        </a>
+    </li>
+
+    <li class="menu-item">
+      <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <a class="menu-link" href="{{route('logout')}}"
+            onclick="event.preventDefault();
+            this.closest('form').submit();">
+            <i class='bx bx-log-in me-2'></i>
+            <span class="align-middle">Logout</span>
+          </a>
+        </form>
+    </li>
+
+    
+
+    
         
     
 
