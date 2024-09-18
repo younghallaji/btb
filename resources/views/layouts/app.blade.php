@@ -165,12 +165,12 @@
           </a>
         </li>
         <li class="menu-item ">
-          <a href="{{route('deposits.option')}}" class="menu-link" >
+          <a href="{{route('mail.multiple')}}" class="menu-link" >
             <div>Bulk Mailing</div>
           </a>
         </li>
         <li class="menu-item ">
-          <a href="{{route('deposits.option')}}" class="menu-link" >
+          <a href="{{route('mail.logs')}}" class="menu-link" >
             <div>Mail History</div>
           </a>
         </li>
@@ -402,7 +402,6 @@
                 </div>
                 <!-- / Layout wrapper -->
                   <!--/ Layout Content -->
-                
               
               <script src={{ asset('assets/vendor/libs/jquery/jquery1e84.js?id=0f7eb1f3a93e3e19e8505fd8c175925a') }}></script>
               <script src={{ asset('assets/vendor/libs/popper/popper0a73.js?id=baf82d96b7771efbcc05c3b77135d24c') }}></script>
@@ -420,10 +419,57 @@
               <script src={{ asset('assets/js/mainbb17.js?id=51f11c4fe8215e76c5b4a4085364f176') }}></script>
               
               <script src={{ asset('assets/js/dashboards-analytics.js') }}></script>
+              <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+              <script src="{{ asset('assets/js/tables-datatables-advanced.js') }}"></script>
               <!-- END: Page JS-->
+              @stack('scripts')
+              <script>
+                $(document).ready(function () {
+                    $('#number_of_emails').on('change', function() {
+                        console.log('changed');
+                        var numEmails = parseInt($(this).val());
+                        var $emailInput = $('#recipient_emails');
+                        
+                        
+                        $emailInput.attr('placeholder', "Enter " + numEmails + " email addresses, separated by commas");
+            
+                        
+                        $emailInput.on('input', function() {
+                            var emailCount = $(this).val().split(',').filter(function(email) {
+                                return $.trim(email) !== ''; // Filter out any empty email addresses
+                            }).length;
+                            
+                            // Custom validation message based on the number of emails
+                            if (emailCount !== numEmails) {
+                                this.setCustomValidity("Please enter exactly " + numEmails + " email addresses.");
+                            } else {
+                                this.setCustomValidity("");
+                            }
+                        });
+                    });
+            
+                    $('#view-template').on('click', function (e) {
+                        e.preventDefault();
+                        
+                        // Get the selected template ID
+                        var templateId = $('#template').val();
+            
+                        // Make an AJAX request to get the template body
+                        $.ajax({
+                            url: '/email-template/' + templateId,
+                            method: 'GET',
+                            success: function (response) {
+                                // Insert the template body into the modal
+                                $('#template-body-content').html(response.body);
+                            },
+                            error: function () {
+                                alert('Unable to load template. Please try again.');
+                            }
+                        });
+                    });
+                });
+            </script>
               
-              </body>
-              
-              
-              </html>
+          </body>          
+    </html>
               

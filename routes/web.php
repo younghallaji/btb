@@ -65,7 +65,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/deposits/history', [DepositController::class, 'depositHistory'])->name('deposits.history');
 
     Route::get('/send-mail', [MailController::class, 'single'])->name('mail.single');
-    Route::post('/send-mail', [MailController::class, 'send'])->name('mail.send');  
+    Route::post('/send-mail', [MailController::class, 'send'])->name('mail.send');
+    Route::get('/send-multiple-mail', [MailController::class, 'multiple'])->name('mail.multiple');
+    Route::post('/send-multiple-mail', [MailController::class, 'sendMultiple'])->name('mail.multiple');  
+    Route::get('/mail-logs', [MailController::class, 'mailLog'])->name('mail.logs');
 
     Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
 });
